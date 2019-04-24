@@ -10,7 +10,9 @@ router.post('/signup', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-  // contents of login route
+  AuthController.login(req.body)
+  .then(() => res.send("logged in succesfully"))
+  .catch((err) => res.send(err.message))
 })
 
 module.exports = router

@@ -22,7 +22,7 @@ Create a login route and a login controller function. On login, a `POST` request
 
 In the controller, use the `AuthModel` to `findOne` user by it's `userName` and `password`. Remember to hash the password first.
 
-In the route, send back the appropriate response from the `Login` function. If the user exists, return a TOKEN containing the user data and using the string "secret" as the secret. Learn how to creat tokens here: https://www.npmjs.com/package/jsonwebtoken
+In the route, send back the appropriate response from the `Login` function. If the user exists, return a TOKEN containing the user data and using the string "secret" as the secret. Learn how to create tokens here: https://www.npmjs.com/package/jsonwebtoken
 
 If the user doesn't exist, return a 404 status code and the string: "user could not be found"
 
