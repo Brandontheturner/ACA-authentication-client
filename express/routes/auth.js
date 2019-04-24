@@ -10,9 +10,17 @@ router.post('/signup', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-  AuthController.login(req.body)
-  .then(() => res.send("logged in succesfully"))
-  .catch((err) => res.send(err.message))
-})
+  AuthController.Login(req.body).then(result => {
+    console.log(result);
+    
+    if (!result) {
+      return res.status(404).send("user not found")
+    }
+    let token = jwt.sign({...result},"secret")
+    console.log(token);
+    
+    return res.send(token)
+    })
+  })
 
 module.exports = router
